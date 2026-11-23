@@ -37,8 +37,7 @@ This is a report the user asked for, so give it in full.
    wrong order, no transaction).
 3. **Scale:** fine for one user, wrong for many: check-then-write races, the
    same work done by every process, memory or lists that only grow, a query
-   per item, O(n^2) on big 
-input, per-process state that must be shared.
+   per item, O(n^2) on big input, per-process state that must be shared.
 4. **Missing test:** risky new logic (a branch, a parser, money, security,
    data writes, a bug fix) with no test that fails when it breaks. One good
    test, not coverage.
@@ -76,8 +75,7 @@ Start with `What this change does:` in two or three sentences.
 
 Then the findings in three groups, skip empty groups:
 - **Must fix:** bug, security, data loss, breaks at the expected load.
-- **Should fix:** risky code without a test, real slownes
-s, duplication, a
+- **Should fix:** risky code without a test, real slowness, duplication, a
   function that mixes jobs, code that should not exist.
 - **Nice to have:** small speed-ups, shorter forms.
 

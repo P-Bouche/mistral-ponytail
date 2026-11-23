@@ -31,8 +31,7 @@ const PATTERNS = {
   rb: [/^\s*(?:def|class|module)\s+([A-Za-z][\w.]*)/gm],
   jvm: [/^\s*(?:public\s+)?(?:static\s+)?(?:final\s+)?(?:class|interface|enum|record)\s+(\w+)/gm],
 };
-const LANG = { py: 'py', js: 'js', jsx
-: 'js', mjs: 'js', cjs: 'js', ts: 'js', tsx: 'js', go: 'go', rs: 'rs',
+const LANG = { py: 'py', js: 'js', jsx: 'js', mjs: 'js', cjs: 'js', ts: 'js', tsx: 'js', go: 'go', rs: 'rs',
                rb: 'rb', java: 'jvm', kt: 'jvm', swift: 'jvm', cs: 'jvm', php: 'jvm' };
 
 function listFiles(root) {
@@ -77,8 +76,7 @@ function buildMap(root = process.cwd()) {
   const files = listFiles(root)
     .filter((f) => SAFE_PATH.test(f) && SRC.test(f) && !SKIP_DIR.test(f) && !SKIP_FILE.test(f))
     .slice(0, MAX_FILES)
-    .sort((a, b) => (SHARED.
-test(b) - SHARED.test(a)) || a.localeCompare(b));
+    .sort((a, b) => (SHARED.test(b) - SHARED.test(a)) || a.localeCompare(b));
   // One line per directory: names are enough to know something exists; grep finds the file.
   const dirs = new Map();
   for (const f of files) {
