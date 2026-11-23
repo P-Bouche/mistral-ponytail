@@ -31,7 +31,7 @@ function filterSkillBodyForMode(body, mode) {
 
       // Require a quoted value: every worked example is `- lite: "..."`, so an
       // ordinary rule bullet that happens to start with a mode word survives.
-      const exampleLabel = line.match(/^-\s*([^:]+):\s*\"/);
+      const exampleLabel = line.match(/^-\s*([^:]+):\s*"/);
       if (exampleLabel) {
         const labelMode = normalizeMode(exampleLabel[1].trim());
         if (labelMode) return labelMode === effectiveMode;
