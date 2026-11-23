@@ -1,0 +1,19 @@
+# Ponytail hooks for Vibe Code (Mistral).
+# session_start injects the ponytail ruleset for the active level;
+# pre_agent tracks /ponytail level switches and, on subagents, injects
+# the ruleset once per session and agent.
+# Runs in the session's pinned copy of the plugin: PLUGIN_ROOT is set.
+
+[[hooks]]
+name = "ponytail-activate"
+type = "session_start"
+command = "node \"$PLUGIN_ROOT/ai.mistral.vibe/hooks/ponytail-activate.js\""
+timeout = 10.0
+description = "Load the ponytail ruleset for the configured level at session start."
+
+[[hooks]]
+name = "ponytail-tracker"
+type = "pre_agent"
+command = "node \"$PLUGIN_ROOT/ai.mistral.vibe/hooks/ponytail-tracker.js\""
+timeout = 10.0
+description = "Track /ponytail level switches; inject the ruleset into subagents."
